@@ -1,36 +1,42 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "./CountriesList.css"; // Archivo de estilos para los países
 
-const CountriesList = () => {
-  const [countries, setCountries] = useState([]);
-
-  // Fetch para obtener países desde el backend
-  useEffect(() => {
-    fetch("http://localhost:5000/api/countries")
-      .then((response) => response.json())
-      .then((data) => setCountries(data))
-      .catch((error) => console.error("Error al obtener los países:", error));
-  }, []);
-
-  return (
-    <div>
-      <h1>Lista de Países</h1>
-      <ul>
-        {countries.map((country) => (
-          <li key={country.name}>
-            <Link to={`/country/${country.name}`}>
+const CountriesList = ({ searchTerm }) => {
+    const [countries, setCountries] = useState([]);
+  
+    useEffect(() => {
+      fetch("http://localhost:5000/api/countries")
+        .then((response) => response.json())
+        .then((data) => setCountries(data))
+        .catch((error) => console.error("Error al obtener los países:", error));
+    }, []);
+  
+    const filteredCountries = countries.filter((country) =>
+      country.name.toLowerCase().includes(searchTerm)
+    );
+  
+    return (
+      <div className="countries-container">
+        <h1>Lista de Países</h1>
+        <div className="countries-grid">
+          {filteredCountries.map((country) => (
+            <Link
+              to={`/country/${country.name}`}
+              key={country.name}
+              className="country-card"
+            >
               <img
                 src={country.flag}
                 alt={`Bandera de ${country.name}`}
-                style={{ width: "30px", marginRight: "10px" }}
+                className="country-flag"
               />
-              {country.name}
+              <p className="country-name">{country.name}</p>
             </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+          ))}
+        </div>
+      </div>
+    );
+  };
 
-export default CountriesList;
+  export default CountriesList;
