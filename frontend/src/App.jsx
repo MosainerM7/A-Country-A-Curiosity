@@ -6,6 +6,7 @@ import CountryCuriosity from "./pages/CountryCuriosity";
 import Header from "./Components/Header";
 
 const App = () => {
+
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredCountries, setFilteredCountries] = useState([]);
 
@@ -21,6 +22,7 @@ const App = () => {
           path="/"
           element={<CountriesList searchTerm={searchTerm} />}
         />
+        
         <Route path="/country/:name" element={<CountryCuriosity />} />
       </Routes>
     </Router>

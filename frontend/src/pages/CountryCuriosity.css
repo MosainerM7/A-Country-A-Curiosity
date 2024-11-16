@@ -1,0 +1,48 @@
+.country-curiosity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Centrado vertical y horizontal */
+    background-color: #f0f4f8; /* Fondo gris claro suave */
+    font-family: "Inter", sans-serif; /* Fuente moderna */
+    color: #333; /* Color de texto oscuro */
+    padding: 20px;
+  }
+  
+  .country-curiosity-card {
+    background-color: #ffffff; /* Fondo blanco para la tarjeta */
+    padding: 30px;
+    border-radius: 12px; /* Bordes redondeados */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+    text-align: center; /* Centrar el contenido dentro de la tarjeta */
+    max-width: 600px; /* Limitar el ancho de la tarjeta */
+    width: 100%;
+    animation: fadeIn 0.6s ease-in-out; /* Animación de entrada */
+  }
+  
+  .country-curiosity h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 20px; /* Espaciado debajo del título */
+    color: #000000; /* Azul moderno */
+  }
+  
+  .country-curiosity p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333333; /* Texto gris oscuro */
+    margin: 0;
+  }
+  
+  /* Animación de entrada */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import "./CountryCuriosity.css"; // Importar los estilos
 
 const CountryCuriosity = () => {
   const { name } = useParams();
@@ -13,9 +14,11 @@ const CountryCuriosity = () => {
   }, [name]);
 
   return (
-    <div>
-      <h1>Curiosidad de {name}</h1>
-      {curiosity ? <p>{curiosity}</p> : <p>Cargando curiosidad...</p>}
+    <div className="country-curiosity">
+      <div className="country-curiosity-card">
+        <h1>Curiosidad de {name}</h1>
+        {curiosity ? <p>{curiosity}</p> : <p>Cargando curiosidad...</p>}
+      </div>
     </div>
   );
 };

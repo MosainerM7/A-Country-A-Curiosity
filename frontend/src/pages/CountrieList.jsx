@@ -18,7 +18,7 @@ const CountriesList = ({ searchTerm }) => {
   
     return (
       <div className="countries-container">
-        <h1>Lista de Países</h1>
+        <h1>Countries</h1>
         <div className="countries-grid">
           {filteredCountries.map((country) => (
             <Link
